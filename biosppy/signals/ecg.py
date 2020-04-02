@@ -1232,8 +1232,10 @@ def ASI_segmentor(signal=None, sampling_rate=1000.):
     # Adapt integration window and derivative according to the sampling rate
     N  = round (3*sampling_rate/128)
     Nd = N-1  
+    # Threshold exponential decay
     Pth = (0.7*sampling_rate)/128+4.7
-    Rmin = 0.26   # minimum allowed for the search window [ 0.2 s refractory period + 0.6 s ~ QRS duration]
+    # Minimum time allowed for the search window [ 0.2 s refractory period + 0.6 s ~ QRS duration]
+    Rmin = 0.26   
     
     
     rpeaks = []
